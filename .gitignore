@@ -35,3 +35,5 @@ data/
 .test
 token_estimator_test.go
 skills-lock.json
+web/classic/bun.lock
+web/default/bun.lock

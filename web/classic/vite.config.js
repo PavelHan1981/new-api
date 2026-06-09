@@ -32,7 +32,7 @@ export default defineConfig({
     },
   },
   plugins: [
-    codeInspectorPlugin({
+    process.env.NODE_ENV !== 'production' && codeInspectorPlugin({
       bundler: 'vite',
     }),
     {
@@ -54,7 +54,7 @@ export default defineConfig({
     vitePluginSemi({
       cssLayer: true,
     }),
-  ],
+  ].filter(Boolean),
   optimizeDeps: {
     force: true,
     esbuildOptions: {
@@ -65,7 +65,9 @@ export default defineConfig({
     },
   },
   build: {
+    sourcemap: false,
     rollupOptions: {
+      maxParallelFileOps: 2,
       output: {
         manualChunks: {
           'react-core': ['react', 'react-dom', 'react-router-dom'],

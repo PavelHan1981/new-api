@@ -25,7 +25,7 @@ import {
 
 const defaultSiteSettings: SiteSettings = {
   Notice: '',
-  SystemName: 'Sunton Token',
+  SystemName: '顺通智算',
   Logo: '',
   Footer: '',
   About: '',

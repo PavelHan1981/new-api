@@ -21,7 +21,7 @@ For commercial licensing, please contact support@quantumnous.com
  */
 
 // System Configuration Defaults
-export const DEFAULT_SYSTEM_NAME = 'Sunton Token'
+export const DEFAULT_SYSTEM_NAME = '顺通智算'
 export const DEFAULT_LOGO = '/logo.png'
 
 // LocalStorage Keys

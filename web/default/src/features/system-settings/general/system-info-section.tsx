@@ -32,14 +32,6 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { FormDirtyIndicator } from '../components/form-dirty-indicator'
 import { FormNavigationGuard } from '../components/form-navigation-guard'
@@ -48,9 +40,6 @@ import { useSettingsForm } from '../hooks/use-settings-form'
 import { useUpdateOption } from '../hooks/use-update-option'
 
 const _systemInfoSchema = z.object({
-  theme: z.object({
-    frontend: z.literal('default'),
-  }),
   SystemName: z.string().min(1),
   ServerAddress: z.string().optional(),
   Logo: z.string().url().optional().or(z.literal('')),
@@ -79,9 +68,6 @@ export function SystemInfoSection({ defaultValues }: SystemInfoSectionProps) {
   const updateOption = useUpdateOption()
 
   const normalizedDefaults: SystemInfoFormValues = {
-    theme: {
-      frontend: 'default',
-    },
     SystemName: normalizeValue(defaultValues.SystemName),
     ServerAddress: normalizeValue(defaultValues.ServerAddress),
     Logo: normalizeValue(defaultValues.Logo),
@@ -95,9 +81,6 @@ export function SystemInfoSection({ defaultValues }: SystemInfoSectionProps) {
   }
 
   const systemInfoSchemaWithI18n = z.object({
-    theme: z.object({
-      frontend: z.literal('default'),
-    }),
     SystemName: z.string().min(1, {
       error: () => t('System name is required'),
     }),
